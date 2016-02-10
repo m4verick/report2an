@@ -1,0 +1,13 @@
+d:\users\documents\visual studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Debug\WeeklyReport.Properties.Resources.resources
+d:\users\documents\visual studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Debug\WeeklyReport.View.ProducerForm.resources
+d:\users\documents\visual studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Debug\WeeklyReport.View.StudioManagerForm.resources
+d:\users\documents\visual studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Debug\WeeklyReport.csproj.GenerateResource.Cache
+d:\users\documents\visual studio 2010\Projects\WeeklyReport\WeeklyReport\bin\Debug\WeeklyReport.exe
+d:\users\documents\visual studio 2010\Projects\WeeklyReport\WeeklyReport\bin\Debug\WeeklyReport.pdb
+d:\users\documents\visual studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Debug\WeeklyReport.exe
+d:\users\documents\visual studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Debug\WeeklyReport.pdb
+d:\users\documents\visual studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Debug\Interop.CDO.dll
+d:\users\documents\visual studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Debug\WeeklyReport.csproj.ResolveComReference.cache
+d:\users\documents\visual studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Debug\WeeklyReport.View.MainView.resources
+d:\users\documents\visual studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Debug\WeeklyReport.csprojResolveAssemblyReference.cache
+d:\users\documents\visual studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Debug\WeeklyReport.View.Login.resources

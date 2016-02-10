@@ -1,0 +1,8 @@
+d:\users\documents\visual studio 2010\Projects\WeeklyReport\WeeklyReport\bin\Release\WeeklyReport.exe
+d:\users\documents\visual studio 2010\Projects\WeeklyReport\WeeklyReport\bin\Release\WeeklyReport.pdb
+d:\users\documents\visual studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Release\WeeklyReport.Properties.Resources.resources
+d:\users\documents\visual studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Release\WeeklyReport.View.ProducerForm.resources
+d:\users\documents\visual studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Release\WeeklyReport.View.StudioManagerForm.resources
+d:\users\documents\visual studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Release\WeeklyReport.csproj.GenerateResource.Cache
+d:\users\documents\visual studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Release\WeeklyReport.exe
+d:\users\documents\visual studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Release\WeeklyReport.pdb
