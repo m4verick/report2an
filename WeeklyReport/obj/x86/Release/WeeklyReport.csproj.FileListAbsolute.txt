@@ -6,3 +6,15 @@ d:\users\documents\visual studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86
 d:\users\documents\visual studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Release\WeeklyReport.csproj.GenerateResource.Cache
 d:\users\documents\visual studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Release\WeeklyReport.exe
 d:\users\documents\visual studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Release\WeeklyReport.pdb
+C:\Users\LUSIA\Documents\Visual Studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Release\Interop.CDO.dll
+C:\Users\LUSIA\Documents\Visual Studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Release\WeeklyReport.csproj.ResolveComReference.cache
+C:\Users\LUSIA\Documents\Visual Studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Release\WeeklyReport.Properties.Resources.resources
+C:\Users\LUSIA\Documents\Visual Studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Release\WeeklyReport.View.Login.resources
+C:\Users\LUSIA\Documents\Visual Studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Release\WeeklyReport.View.MainView.resources
+C:\Users\LUSIA\Documents\Visual Studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Release\WeeklyReport.View.ProducerForm.resources
+C:\Users\LUSIA\Documents\Visual Studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Release\WeeklyReport.View.StudioManagerForm.resources
+C:\Users\LUSIA\Documents\Visual Studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Release\WeeklyReport.csproj.GenerateResource.Cache
+C:\Users\LUSIA\Documents\Visual Studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Release\WeeklyReport.exe
+C:\Users\LUSIA\Documents\Visual Studio 2010\Projects\WeeklyReport\WeeklyReport\bin\Release\WeeklyReport.exe
+C:\Users\LUSIA\Documents\Visual Studio 2010\Projects\WeeklyReport\WeeklyReport\bin\Release\WeeklyReport.pdb
+C:\Users\LUSIA\Documents\Visual Studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Release\WeeklyReport.pdb

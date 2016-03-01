@@ -17,6 +17,7 @@ namespace WeeklyReport
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainView("test"));
+            //Application.Run(new Login());
         }
     }
 }

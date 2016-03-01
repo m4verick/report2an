@@ -11,3 +11,16 @@ d:\users\documents\visual studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86
 d:\users\documents\visual studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Debug\WeeklyReport.View.MainView.resources
 d:\users\documents\visual studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Debug\WeeklyReport.csprojResolveAssemblyReference.cache
 d:\users\documents\visual studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Debug\WeeklyReport.View.Login.resources
+C:\Users\LUSIA\Documents\Visual Studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Debug\Interop.CDO.dll
+C:\Users\LUSIA\Documents\Visual Studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Debug\WeeklyReport.csproj.ResolveComReference.cache
+C:\Users\LUSIA\Documents\Visual Studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Debug\WeeklyReport.exe
+C:\Users\LUSIA\Documents\Visual Studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Debug\WeeklyReport.pdb
+C:\Users\LUSIA\Documents\Visual Studio 2010\Projects\WeeklyReport\WeeklyReport\bin\Debug\WeeklyReport.exe
+C:\Users\LUSIA\Documents\Visual Studio 2010\Projects\WeeklyReport\WeeklyReport\bin\Debug\WeeklyReport.pdb
+C:\Users\LUSIA\Documents\Visual Studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Debug\WeeklyReport.csprojResolveAssemblyReference.cache
+C:\Users\LUSIA\Documents\Visual Studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Debug\WeeklyReport.Properties.Resources.resources
+C:\Users\LUSIA\Documents\Visual Studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Debug\WeeklyReport.View.Login.resources
+C:\Users\LUSIA\Documents\Visual Studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Debug\WeeklyReport.View.MainView.resources
+C:\Users\LUSIA\Documents\Visual Studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Debug\WeeklyReport.View.ProducerForm.resources
+C:\Users\LUSIA\Documents\Visual Studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Debug\WeeklyReport.View.StudioManagerForm.resources
+C:\Users\LUSIA\Documents\Visual Studio 2010\Projects\WeeklyReport\WeeklyReport\obj\x86\Debug\WeeklyReport.csproj.GenerateResource.Cache

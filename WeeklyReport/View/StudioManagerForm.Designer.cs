@@ -59,17 +59,19 @@
             this.dtp_Report = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.wb_ViewReport = new System.Windows.Forms.WebBrowser();
-            this.cmb_GameTitleSM = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.cmb_RoleUser = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txt_PassUser = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txt_UserSystem = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.btn_AddUser = new System.Windows.Forms.Button();
             this.dgv_Producer = new System.Windows.Forms.DataGridView();
+            this.label12 = new System.Windows.Forms.Label();
+            this.btn_AddAlloc = new System.Windows.Forms.Button();
+            this.txt_PrgAlloc = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txt_QaAlloc = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cmb_Producer = new System.Windows.Forms.ComboBox();
+            this.txt_GfxAlloc = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txt_GdAlloc = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.TabSM.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -299,8 +301,6 @@
             this.tabPage2.Controls.Add(this.dtp_Report);
             this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.wb_ViewReport);
-            this.tabPage2.Controls.Add(this.cmb_GameTitleSM);
-            this.tabPage2.Controls.Add(this.label1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -313,6 +313,7 @@
             // 
             this.txt_GLPass.Location = new System.Drawing.Point(505, 63);
             this.txt_GLPass.Name = "txt_GLPass";
+            this.txt_GLPass.PasswordChar = '*';
             this.txt_GLPass.Size = new System.Drawing.Size(189, 20);
             this.txt_GLPass.TabIndex = 28;
             // 
@@ -349,6 +350,7 @@
             this.btn_SendMailReport.TabIndex = 24;
             this.btn_SendMailReport.Text = "Send Mail";
             this.btn_SendMailReport.UseVisualStyleBackColor = true;
+            this.btn_SendMailReport.Click += new System.EventHandler(this.btn_SendMailReport_Click);
             // 
             // btn_ViewReport
             // 
@@ -362,7 +364,7 @@
             // 
             // dtp_Report
             // 
-            this.dtp_Report.Location = new System.Drawing.Point(92, 64);
+            this.dtp_Report.Location = new System.Drawing.Point(82, 41);
             this.dtp_Report.Name = "dtp_Report";
             this.dtp_Report.Size = new System.Drawing.Size(189, 20);
             this.dtp_Report.TabIndex = 22;
@@ -370,7 +372,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 70);
+            this.label2.Location = new System.Drawing.Point(25, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(30, 13);
             this.label2.TabIndex = 21;
@@ -384,34 +386,20 @@
             this.wb_ViewReport.Size = new System.Drawing.Size(816, 381);
             this.wb_ViewReport.TabIndex = 20;
             // 
-            // cmb_GameTitleSM
-            // 
-            this.cmb_GameTitleSM.FormattingEnabled = true;
-            this.cmb_GameTitleSM.Location = new System.Drawing.Point(92, 26);
-            this.cmb_GameTitleSM.Name = "cmb_GameTitleSM";
-            this.cmb_GameTitleSM.Size = new System.Drawing.Size(189, 21);
-            this.cmb_GameTitleSM.TabIndex = 19;
-            this.cmb_GameTitleSM.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cmb_GameTitleSM_MouseClick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Game Title";
-            // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.dgv_Producer);
-            this.tabPage3.Controls.Add(this.cmb_RoleUser);
+            this.tabPage3.Controls.Add(this.txt_GfxAlloc);
+            this.tabPage3.Controls.Add(this.label14);
+            this.tabPage3.Controls.Add(this.txt_GdAlloc);
+            this.tabPage3.Controls.Add(this.label15);
+            this.tabPage3.Controls.Add(this.cmb_Producer);
+            this.tabPage3.Controls.Add(this.txt_QaAlloc);
             this.tabPage3.Controls.Add(this.label13);
-            this.tabPage3.Controls.Add(this.txt_PassUser);
+            this.tabPage3.Controls.Add(this.txt_PrgAlloc);
             this.tabPage3.Controls.Add(this.label11);
-            this.tabPage3.Controls.Add(this.txt_UserSystem);
+            this.tabPage3.Controls.Add(this.dgv_Producer);
             this.tabPage3.Controls.Add(this.label12);
-            this.tabPage3.Controls.Add(this.btn_AddUser);
+            this.tabPage3.Controls.Add(this.btn_AddAlloc);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -420,64 +408,6 @@
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // cmb_RoleUser
-            // 
-            this.cmb_RoleUser.FormattingEnabled = true;
-            this.cmb_RoleUser.Location = new System.Drawing.Point(108, 127);
-            this.cmb_RoleUser.Name = "cmb_RoleUser";
-            this.cmb_RoleUser.Size = new System.Drawing.Size(189, 21);
-            this.cmb_RoleUser.TabIndex = 35;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(27, 130);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(29, 13);
-            this.label13.TabIndex = 34;
-            this.label13.Text = "Role";
-            // 
-            // txt_PassUser
-            // 
-            this.txt_PassUser.Location = new System.Drawing.Point(108, 86);
-            this.txt_PassUser.Name = "txt_PassUser";
-            this.txt_PassUser.Size = new System.Drawing.Size(189, 20);
-            this.txt_PassUser.TabIndex = 33;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(27, 89);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(53, 13);
-            this.label11.TabIndex = 32;
-            this.label11.Text = "Password";
-            // 
-            // txt_UserSystem
-            // 
-            this.txt_UserSystem.Location = new System.Drawing.Point(108, 50);
-            this.txt_UserSystem.Name = "txt_UserSystem";
-            this.txt_UserSystem.Size = new System.Drawing.Size(189, 20);
-            this.txt_UserSystem.TabIndex = 31;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(27, 53);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(55, 13);
-            this.label12.TabIndex = 30;
-            this.label12.Text = "Username";
-            // 
-            // btn_AddUser
-            // 
-            this.btn_AddUser.Location = new System.Drawing.Point(126, 170);
-            this.btn_AddUser.Name = "btn_AddUser";
-            this.btn_AddUser.Size = new System.Drawing.Size(75, 23);
-            this.btn_AddUser.TabIndex = 29;
-            this.btn_AddUser.Text = "Add User";
-            this.btn_AddUser.UseVisualStyleBackColor = true;
-            // 
             // dgv_Producer
             // 
             this.dgv_Producer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -485,6 +415,96 @@
             this.dgv_Producer.Name = "dgv_Producer";
             this.dgv_Producer.Size = new System.Drawing.Size(462, 450);
             this.dgv_Producer.TabIndex = 36;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(27, 53);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(50, 13);
+            this.label12.TabIndex = 30;
+            this.label12.Text = "Producer";
+            // 
+            // btn_AddAlloc
+            // 
+            this.btn_AddAlloc.Location = new System.Drawing.Point(126, 255);
+            this.btn_AddAlloc.Name = "btn_AddAlloc";
+            this.btn_AddAlloc.Size = new System.Drawing.Size(75, 23);
+            this.btn_AddAlloc.TabIndex = 29;
+            this.btn_AddAlloc.Text = "Add";
+            this.btn_AddAlloc.UseVisualStyleBackColor = true;
+            // 
+            // txt_PrgAlloc
+            // 
+            this.txt_PrgAlloc.Location = new System.Drawing.Point(108, 88);
+            this.txt_PrgAlloc.Name = "txt_PrgAlloc";
+            this.txt_PrgAlloc.Size = new System.Drawing.Size(93, 20);
+            this.txt_PrgAlloc.TabIndex = 38;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(27, 91);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(79, 13);
+            this.label11.TabIndex = 37;
+            this.label11.Text = "PRG Allocation";
+            // 
+            // txt_QaAlloc
+            // 
+            this.txt_QaAlloc.Location = new System.Drawing.Point(108, 123);
+            this.txt_QaAlloc.Name = "txt_QaAlloc";
+            this.txt_QaAlloc.Size = new System.Drawing.Size(93, 20);
+            this.txt_QaAlloc.TabIndex = 40;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(27, 126);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(71, 13);
+            this.label13.TabIndex = 39;
+            this.label13.Text = "QA Allocation";
+            // 
+            // cmb_Producer
+            // 
+            this.cmb_Producer.FormattingEnabled = true;
+            this.cmb_Producer.Location = new System.Drawing.Point(108, 53);
+            this.cmb_Producer.Name = "cmb_Producer";
+            this.cmb_Producer.Size = new System.Drawing.Size(189, 21);
+            this.cmb_Producer.TabIndex = 41;
+            // 
+            // txt_GfxAlloc
+            // 
+            this.txt_GfxAlloc.Location = new System.Drawing.Point(108, 190);
+            this.txt_GfxAlloc.Name = "txt_GfxAlloc";
+            this.txt_GfxAlloc.Size = new System.Drawing.Size(93, 20);
+            this.txt_GfxAlloc.TabIndex = 45;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(27, 193);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(77, 13);
+            this.label14.TabIndex = 44;
+            this.label14.Text = "GFX Allocation";
+            // 
+            // txt_GdAlloc
+            // 
+            this.txt_GdAlloc.Location = new System.Drawing.Point(108, 158);
+            this.txt_GdAlloc.Name = "txt_GdAlloc";
+            this.txt_GdAlloc.Size = new System.Drawing.Size(93, 20);
+            this.txt_GdAlloc.TabIndex = 43;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(27, 161);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(72, 13);
+            this.label15.TabIndex = 42;
+            this.label15.Text = "GD Allocation";
             // 
             // StudioManagerForm
             // 
@@ -544,20 +564,22 @@
         private System.Windows.Forms.DateTimePicker dtp_Report;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.WebBrowser wb_ViewReport;
-        private System.Windows.Forms.ComboBox cmb_GameTitleSM;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TextBox txt_GLPass;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txt_GLMailAcc;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox cmb_RoleUser;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txt_PassUser;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txt_UserSystem;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button btn_AddUser;
+        private System.Windows.Forms.Button btn_AddAlloc;
         private System.Windows.Forms.DataGridView dgv_Producer;
+        private System.Windows.Forms.ComboBox cmb_Producer;
+        private System.Windows.Forms.TextBox txt_QaAlloc;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txt_PrgAlloc;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txt_GfxAlloc;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txt_GdAlloc;
+        private System.Windows.Forms.Label label15;
     }
 }

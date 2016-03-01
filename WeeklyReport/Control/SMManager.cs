@@ -57,7 +57,7 @@ namespace WeeklyReport.Control
         {
             dataSet = new DataSet();
             query = string.Empty;
-            query = "SELECT prod_id, name FROM producers";
+            query = "SELECT id_user, user_name FROM user_system WHERE role_user = 'Producer'";
 
             try
             {
@@ -82,12 +82,12 @@ namespace WeeklyReport.Control
             return dataSet;
         }
 
-        public DataSet GetDataSituationAttentionByGame(string idGame, string date)
+        public DataSet GetDataSituationAttentionByGame(string date)
         {
             //string now = DateTime.Now.ToString("yyyy-MM-dd");
             dataSet = new DataSet();
             query = string.Empty;
-            query = "SELECT g.game_title, sa.status, sa.situation, sa.attention, g.local_deadline FROM situation_attentions sa JOIN game g ON g.gameid = sa.id_game_title WHERE sa.id_game_title = " + idGame + " AND sa.creation_date = '" + date + "'";
+            query = "SELECT g.game_title, sa.status, g.local_deadline, sa.situation, sa.attention, g.game_id FROM situation_attentions sa JOIN game g ON g.gameid = sa.id_game_title WHERE sa.creation_date = '" + date + "'";
 
             try
             {

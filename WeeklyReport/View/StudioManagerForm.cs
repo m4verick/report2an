@@ -40,7 +40,7 @@ namespace WeeklyReport.View
             InitializeComponent();
             tabPage1.Text = "Input Project";
             tabPage2.Text = "View Report";
-            tabPage3.Text = "Input Producer";
+            tabPage3.Text = "Input Allocation";
             s_SMManager = new SMManager();
             s_ProducerManager = new ProducerManager();
             DateTimeFormat();
@@ -66,16 +66,16 @@ namespace WeeklyReport.View
         {
             DataSet ds = s_SMManager.GetDataProducerByName();
             cmbSM_LocalProd.DataSource = ds.Tables[0];
-            cmbSM_LocalProd.DisplayMember = "name";
-            cmbSM_LocalProd.ValueMember = "prod_id";
+            cmbSM_LocalProd.DisplayMember = "user_name";
+            cmbSM_LocalProd.ValueMember = "id_user";
         }
 
         private void DataSetComboBoxGame()
         {
-            DataSet ds = s_ProducerManager.GetDataGameByName();
-            cmb_GameTitleSM.DataSource = ds.Tables[0];
-            cmb_GameTitleSM.DisplayMember = "game_title";
-            cmb_GameTitleSM.ValueMember = "gameid";
+            //DataSet ds = s_ProducerManager.GetDataGameByName();
+            //cmb_GameTitleSM.DataSource = ds.Tables[0];
+            //cmb_GameTitleSM.DisplayMember = "game_title";
+            //cmb_GameTitleSM.ValueMember = "gameid";
         }
 
         private int isClickProject()
@@ -122,20 +122,15 @@ namespace WeeklyReport.View
             txtSM_HQProd.Text = "";
         }
 
-        private void btn_Send_Click(object sender, EventArgs e)
-        {
-            MailSending();
-        }
-
-        private void MailSending()
+        private void MailSending(string username, string pass)
         {
             try
             {
                 MailMessage message = new MailMessage();
                 SmtpClient smtp = new SmtpClient();
 
-                message.From = new MailAddress("raymond.sabandar@gameloft.com");
-                message.To.Add(new MailAddress("raymond.sabandar@gameloft.com"));
+                message.From = new MailAddress(username);
+                message.To.Add(new MailAddress("ruben.ramirez@gameloft.com"));
                 message.Subject = "Test";
                 message.IsBodyHtml = true;
                 //message.Body = BodyMessage();
@@ -146,7 +141,7 @@ namespace WeeklyReport.View
                 smtp.Host = "mail01.jog.gameloft.org";
                 smtp.EnableSsl = false;
                 smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new NetworkCredential("raymond.sabandar@gameloft.com", "G0d is g00d");
+                smtp.Credentials = new NetworkCredential(username, pass);
                 //smtp.Credentials = new System.Net.NetworkCredential("frederik.sabandar@gmail.com", "fr3d3r1ks4b4nd@r");
                // smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
                 smtp.Send(message);
@@ -314,17 +309,7 @@ namespace WeeklyReport.View
 
         private void btn_ViewReport_Click(object sender, EventArgs e)
         {
-            //"g.game_title, sa.status, sa.situation, sa.attention"
-
-            DataSet ds = s_SMManager.GetDataSituationAttentionByGame(cmb_GameTitleSM.SelectedValue.ToString(), dtp_Report.Text.ToString());
-            
-            m_GameTitle = ds.Tables[0].Rows[0][0].ToString();
-            m_Status = ds.Tables[0].Rows[0][1].ToString();
-            m_Situation = ds.Tables[0].Rows[0][2].ToString();
-            m_Attention = ds.Tables[0].Rows[0][3].ToString();
-            m_Deadline = ConvertDateTime(ds.Tables[0].Rows[0][4].ToString());
-
-            wb_ViewReport.DocumentText = BodyMessage(m_GameTitle, m_Status, m_Situation, m_Attention, m_Deadline);
+            wb_ViewReport.DocumentText = SetAllContents();
         }
 
         private void cmb_GameTitleSM_MouseClick(object sender, MouseEventArgs e)
@@ -338,16 +323,149 @@ namespace WeeklyReport.View
             return temp.ToString("dd MMMM yyyy");
         }
 
-        private void SetAllParameterRiskAndSolutions()
+        private string SetAllContents()
+        {
+            string contents = "";
+            string temp;
+
+            DataSet ds = s_SMManager.GetDataSituationAttentionByGame(dtp_Report.Text.ToString());
+            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            {
+                temp = SetTemplateContent(ds.Tables[0].Rows[i][0].ToString(), ds.Tables[0].Rows[i][1].ToString(), ds.Tables[0].Rows[i][2].ToString(), ds.Tables[0].Rows[i][3].ToString(), ds.Tables[0].Rows[i][4].ToString(), ds.Tables[0].Rows[i][5].ToString());
+                contents += temp;
+            }
+            return contents;
+        }
+
+        private string SetAllParameterRiskAndSolutions(string GameTitle)
         {
             string contentRiskSolutions = "";
             string temp;
-            DataSet ds = s_SMManager.GetDataRisksSolutionByGame(cmb_GameTitleSM.SelectedValue.ToString(), dtp_Report.Text.ToString());
+            DataSet ds = s_SMManager.GetDataRisksSolutionByGame(GameTitle, dtp_Report.Text.ToString());
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
                 temp = SetTemplateRiskAndSolutions(ds.Tables[0].Rows[i][0].ToString(), ds.Tables[0].Rows[i][1].ToString(), ds.Tables[0].Rows[i][2].ToString(), ds.Tables[0].Rows[i][3].ToString(), ds.Tables[0].Rows[i][4].ToString(), ds.Tables[0].Rows[i][5].ToString());
                 contentRiskSolutions += temp;
             }
+
+            return contentRiskSolutions;
+        }
+
+        private string SetTemplateContent(string gameTitle, string status, string deadline, string situation, string attention, string idGameTitle)
+        {
+            return"<html>" +
+                "<head>" +
+                "<meta http-equiv=" + "\"Content-Type\"" + " content=" + "\"text/html;" +
+                    "charset=windows-1252\">" +
+                "<meta name=" + "\"Generator\"" + " content=" + "\"Microsoft Word 15 (filtered medium)\">" +
+                "</head>" +
+                "<body bgcolor=" + "\"#FFFFFF\"" + " lang=" + "\"EN-US\"" + " link=" + "\"#0563C1\"" + " text=" + "\"#333333\"" +
+                " vlink=" + "\"#954F72\">" +
+                "<div class=" + "\"WordSection1\">" +
+                    "<table class=" + "\"MsoTableGrid\"" +
+                    " style=" + "\"border-collapse:collapse;border:none\"" + " border=" + "\"1\"" +
+                    " cellpadding=" + "\"0\"" + " cellspacing=" + "\"0\">" +
+                    "<tbody>" +
+                        "<tr>" +
+                        "<td colspan=" + "\"2\"" + " style=" + "\"width:625.1pt;border:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt\"" + " valign=" + "\"top\"" +
+                            " width=" + "\"833\">" +
+                            "<p class=" + "\"MsoNormal\"" + " style=" + "\"text-align:center\"" +
+                            " align=" + "\"center\">" + gameTitle + "<o:p></o:p></p>" +
+                        "</td>" +
+                        "</tr>" +
+                        "<tr>" +
+                        "<td style=" + "\"width:116.6pt;border:solid windowtext 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt\"" +
+                            " valign=" + "\"top\"" + " width=" + "\"155\">" +
+                            "<p class=" + "\"MsoNormal\">" + "Status<o:p></o:p></p>" +
+                        "</td>" +
+                        "<td " +
+                            "style=" + "\"width:508.5pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt\"" + " valign=" + "\"top\"" +
+                            " width=" + "\"678\">" +
+                            "<p class=" + "\"MsoNormal\">" + status + "<o:p></o:p></p>" +
+                        "</td>" +
+                        "</tr>" +
+                        "<tr>" +
+                        "<td style=" + "\"width:116.6pt;border:solid windowtext 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt\"" + " valign=" + "\"top\"" + " width=" + "\"155\">" +
+                            "<p class=" + "\"MsoNormal\">" + "Deadline<o:p></o:p></p>" +
+                        "</td>" +
+                        "<td" +
+                            " style=" + "\"width:508.5pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt\"" + " valign=" + "\"top\"" +
+                            " width=" + "\"678\">" +
+                            "<p class=" + "\"MsoNormal\">" + deadline + "<o:p></o:p></p>" +
+                        "</td>" +
+                        "</tr>" +
+                        "<tr>" +
+                        "<td style=" + "\"width:116.6pt;border:solid windowtext 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt\"" +
+                            " valign=" + "\"top\"" + " width=" + "\"155\">" +
+                            "<p class=" + "\"MsoNormal\">" + "Situation &amp; Next Goals<o:p></o:p></p>" +
+                        "</td>" +
+                        "<td" +
+                        " style=" + "\"width:508.5pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt\"" + " valign=" + "\"top\"" +
+                            " width=" + "\"678\">" +
+                            "<p class=" + "\"MsoNormal\">" + situation + "<o:p></o:p></p>" +
+                        "</td>" +
+                        "</tr>" +
+                        "<tr>" +
+                        "<td style=" + "\"width:116.6pt;border:solid windowtext 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt\"" +
+                            " valign=" + "\"top\"" + " width=" + "\"155\">" +
+                            "<p class=" + "\"MsoNormal\">" + "Need your Attention<o:p></o:p></p>" +
+                        "</td>" +
+                        "<td" +
+                            " style=" + "\"width:508.5pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt\"" + " valign=" + "\"top\"" +
+                            " width=" + "\"678\">" +
+                            "<p class=" + "\"MsoNormal\">" + attention + "<o:p></o:p></p>" +
+                        "</td>" +
+                        "</tr>" +
+                        "<tr>" +
+                        "<td style=" + "\"width:116.6pt;border:solid windowtext 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt\"" + " valign=" + "\"top\"" + " width=" + "\"155\">" +
+                            "<p class=" + "\"MsoNormal\">" + "Risk and Solution<o:p></o:p></p>" +
+                        "</td>" +
+                        "<td" +
+                            " style=" + "\"width:508.5pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt\"" + " valign=" + "\"top\"" +
+                            " width=" + "\"678\">" +
+                            "<p class=" + "\"MsoNormal\">" + "<o:p> </o:p></p>" +
+                        "</td>" +
+                        "</tr>" +
+                        "<tr style=" + "\"height:73.75pt\">" +
+                        "<td colspan=" + "\"2\"" + " style=" + "\"width:625.1pt;border:solid windowtext 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:73.75pt\"" + " valign=" + "\"top\"" + " width=" + "\"833\">" +
+                            "<p class=" + "\"MsoNormal\">" + "-- <o:p></o:p></span></p>" +
+                            "<table class=" + "\"MsoTableGrid\"" +
+                            " style=" + "\"border-collapse:collapse;border:none\"" + " border=" + "\"1\"" +
+                            " cellpadding=" + "\"0\"" + " cellspacing=" + "\"0\">" +
+                            "<tbody>" +
+                                "<tr>" +
+                                "<td style=" + "\"width:137.4pt;border:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt\"" + " valign=" + "\"top\"" +
+                                    " width=" + "\"183\">" +
+                                    "<p class=" + "\"MsoNormal\">" + "List of Possible Risks<o:p></o:p></p>" +
+                                "</td>" +
+                                "<td style=" + "\"width:57.3pt;border:solid windowtext 1.0pt;border-left:none;padding:0in 5.4pt 0in 5.4pt\"" + " valign=" + "\"top\"" + " width=" + "\"76\">" +
+                                    "<p class=" + "\"MsoNormal\">" + "Likelihood<o:p></o:p></p>" +
+                                "</td>" +
+                                "<td style=" + "\"width:51.1pt;border:solid windowtext 1.0pt;border-left:none;padding:0in 5.4pt 0in 5.4pt\"" + " valign=" + "\"top\"" + " width=" + "\"68\">" +
+                                    "<p class=" + "\"MsoNormal\">" + "Impact<o:p></o:p></p>" +
+                                "</td>" +
+                                "<td style=" + "\"width:1.75in;border:solid windowtext 1.0pt;border-left:none;padding:0in 5.4pt 0in 5.4pt\"" + " valign=" + "\"top\"" + " width=" + "\"168\">" +
+                                    "<p class=" + "\"MsoNormal\">" + "Consequences<o:p></o:p></p>" +
+                                "</td>" +
+                                "<td style=" + "\"width:146.05pt;border:solid windowtext 1.0pt;border-left:none;padding:0in 5.4pt 0in 5.4pt\"" + " valign=" + "\"top\"" + " width=" + "\"195\">" +
+                                    "<p class=" + "\"MsoNormal\">" + "Solutions<o:p></o:p></p>" +
+                                "</td>" +
+                                "<td style=" + "\"width:95.6pt;border:solid windowtext 1.0pt;border-left:none;padding:0in 5.4pt 0in 5.4pt\"" + " valign=" + "\"top\"" + " width=" + "\"127\">" +
+                                    "<p class=" + "\"MsoNormal\">" + "ETA for Solutions<o:p></o:p></p>" +
+                                "</td>" +
+                                "</tr>" +
+                                SetAllParameterRiskAndSolutions(idGameTitle) +
+                            "</tbody>" +
+                            "</table>" +
+                            "<p class=" + "\"MsoNormal\">" + "<o:p></o:p></span></p>" +
+                        "</td>" +
+                        "</tr>" +
+                    "</tbody>" +
+                    "</table>" +
+                    "<p class=" + "\"MsoNormal\">" + "<o:p> </o:p></span></p>" +
+                "</div>" +
+                "</body>" +
+            "</html>";
         }
 
         private string SetTemplateRiskAndSolutions(string risk, string likelyhood, string impact, string cons, string solution, string eta)
@@ -404,6 +522,11 @@ namespace WeeklyReport.View
 
             wb_ViewReport.Height = StudioManagerForm.ActiveForm.Size.Height - 10;
             wb_ViewReport.Width = StudioManagerForm.ActiveForm.Size.Width - 10;
+        }
+
+        private void btn_SendMailReport_Click(object sender, EventArgs e)
+        {
+            MailSending(txt_GLMailAcc.Text.ToString(), txt_GLPass.Text.ToString());
         }
     }
 }
