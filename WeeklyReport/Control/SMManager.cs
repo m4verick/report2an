@@ -53,6 +53,32 @@ namespace WeeklyReport.Control
             return result;
         }
 
+        public bool AddResourceAllocation(StudioManager sm)
+        {
+            bool result = false;
+
+            query = "INSERT INTO resources (prod_id, prg_alloc, qa_alloc, gd_alloc, gfx_alloc) VALUES('" + sm.m_ProdId + "'," + sm.m_PrgAlloc + "," + sm.m_QaAlloc + "," + sm.m_GdAlloc + "," + sm.m_GfxAlloc + ")";
+
+            try
+            {
+                connect.Open();
+                cmd = new MySqlCommand(query, connect);
+                cmd.ExecuteNonQuery();
+                result = true;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+                result = false;
+            }
+            finally
+            {
+                connect.Close();
+            }
+
+            return result;
+        }
+
         public DataSet GetDataProducerByName()
         {
             dataSet = new DataSet();
@@ -87,7 +113,7 @@ namespace WeeklyReport.Control
             //string now = DateTime.Now.ToString("yyyy-MM-dd");
             dataSet = new DataSet();
             query = string.Empty;
-            query = "SELECT g.game_title, sa.status, g.local_deadline, sa.situation, sa.attention, g.game_id FROM situation_attentions sa JOIN game g ON g.gameid = sa.id_game_title WHERE sa.creation_date = '" + date + "'";
+            query = "SELECT g.game_title, sa.status, g.local_deadline, sa.situation, sa.attention, g.gameid FROM situation_attentions sa JOIN game g ON g.gameid = sa.id_game_title WHERE sa.creation_date = '" + date + "'";
 
             try
             {
@@ -117,7 +143,7 @@ namespace WeeklyReport.Control
             //string now = DateTime.Now.ToString("yyyy-MM-dd");
             dataSet = new DataSet();
             query = string.Empty;
-            query = "SELECT rs.risk, rs.likehood, rs.impact, rs.consequense, rs.solution, rs.eta from risk_solutions rs WHERE rs.id_situation_attention = (SELECT sa.id_situation_attention FROM situation_attentions sa WHERE sa.id_game_title = " + idGame + ") AND sa.creation_date = '" + date + "'";
+            query = "SELECT rs.risk, rs.likelyhood, rs.impact, rs.consequense, rs.solution, rs.eta from risks_solutions rs JOIN situation_attentions sa ON sa.id_situation_attention = rs.id_situation_attention WHERE rs.id_situation_attention = (SELECT sa.id_situation_attention FROM situation_attentions sa WHERE sa.id_game_title = " + idGame + ") AND sa.creation_date = '" + date + "'";
 
             try
             {

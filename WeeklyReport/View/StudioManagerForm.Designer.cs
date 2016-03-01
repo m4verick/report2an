@@ -60,18 +60,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.wb_ViewReport = new System.Windows.Forms.WebBrowser();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.dgv_Producer = new System.Windows.Forms.DataGridView();
-            this.label12 = new System.Windows.Forms.Label();
-            this.btn_AddAlloc = new System.Windows.Forms.Button();
-            this.txt_PrgAlloc = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txt_QaAlloc = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.cmb_Producer = new System.Windows.Forms.ComboBox();
             this.txt_GfxAlloc = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txt_GdAlloc = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
+            this.cmb_Producer = new System.Windows.Forms.ComboBox();
+            this.txt_QaAlloc = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txt_PrgAlloc = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.dgv_Producer = new System.Windows.Forms.DataGridView();
+            this.label12 = new System.Windows.Forms.Label();
+            this.btn_AddAlloc = new System.Windows.Forms.Button();
             this.TabSM.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -408,72 +408,6 @@
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // dgv_Producer
-            // 
-            this.dgv_Producer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Producer.Location = new System.Drawing.Point(364, 22);
-            this.dgv_Producer.Name = "dgv_Producer";
-            this.dgv_Producer.Size = new System.Drawing.Size(462, 450);
-            this.dgv_Producer.TabIndex = 36;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(27, 53);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(50, 13);
-            this.label12.TabIndex = 30;
-            this.label12.Text = "Producer";
-            // 
-            // btn_AddAlloc
-            // 
-            this.btn_AddAlloc.Location = new System.Drawing.Point(126, 255);
-            this.btn_AddAlloc.Name = "btn_AddAlloc";
-            this.btn_AddAlloc.Size = new System.Drawing.Size(75, 23);
-            this.btn_AddAlloc.TabIndex = 29;
-            this.btn_AddAlloc.Text = "Add";
-            this.btn_AddAlloc.UseVisualStyleBackColor = true;
-            // 
-            // txt_PrgAlloc
-            // 
-            this.txt_PrgAlloc.Location = new System.Drawing.Point(108, 88);
-            this.txt_PrgAlloc.Name = "txt_PrgAlloc";
-            this.txt_PrgAlloc.Size = new System.Drawing.Size(93, 20);
-            this.txt_PrgAlloc.TabIndex = 38;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(27, 91);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(79, 13);
-            this.label11.TabIndex = 37;
-            this.label11.Text = "PRG Allocation";
-            // 
-            // txt_QaAlloc
-            // 
-            this.txt_QaAlloc.Location = new System.Drawing.Point(108, 123);
-            this.txt_QaAlloc.Name = "txt_QaAlloc";
-            this.txt_QaAlloc.Size = new System.Drawing.Size(93, 20);
-            this.txt_QaAlloc.TabIndex = 40;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(27, 126);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(71, 13);
-            this.label13.TabIndex = 39;
-            this.label13.Text = "QA Allocation";
-            // 
-            // cmb_Producer
-            // 
-            this.cmb_Producer.FormattingEnabled = true;
-            this.cmb_Producer.Location = new System.Drawing.Point(108, 53);
-            this.cmb_Producer.Name = "cmb_Producer";
-            this.cmb_Producer.Size = new System.Drawing.Size(189, 21);
-            this.cmb_Producer.TabIndex = 41;
-            // 
             // txt_GfxAlloc
             // 
             this.txt_GfxAlloc.Location = new System.Drawing.Point(108, 190);
@@ -505,6 +439,73 @@
             this.label15.Size = new System.Drawing.Size(72, 13);
             this.label15.TabIndex = 42;
             this.label15.Text = "GD Allocation";
+            // 
+            // cmb_Producer
+            // 
+            this.cmb_Producer.FormattingEnabled = true;
+            this.cmb_Producer.Location = new System.Drawing.Point(108, 53);
+            this.cmb_Producer.Name = "cmb_Producer";
+            this.cmb_Producer.Size = new System.Drawing.Size(189, 21);
+            this.cmb_Producer.TabIndex = 41;
+            // 
+            // txt_QaAlloc
+            // 
+            this.txt_QaAlloc.Location = new System.Drawing.Point(108, 123);
+            this.txt_QaAlloc.Name = "txt_QaAlloc";
+            this.txt_QaAlloc.Size = new System.Drawing.Size(93, 20);
+            this.txt_QaAlloc.TabIndex = 40;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(27, 126);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(71, 13);
+            this.label13.TabIndex = 39;
+            this.label13.Text = "QA Allocation";
+            // 
+            // txt_PrgAlloc
+            // 
+            this.txt_PrgAlloc.Location = new System.Drawing.Point(108, 88);
+            this.txt_PrgAlloc.Name = "txt_PrgAlloc";
+            this.txt_PrgAlloc.Size = new System.Drawing.Size(93, 20);
+            this.txt_PrgAlloc.TabIndex = 38;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(27, 91);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(79, 13);
+            this.label11.TabIndex = 37;
+            this.label11.Text = "PRG Allocation";
+            // 
+            // dgv_Producer
+            // 
+            this.dgv_Producer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Producer.Location = new System.Drawing.Point(364, 22);
+            this.dgv_Producer.Name = "dgv_Producer";
+            this.dgv_Producer.Size = new System.Drawing.Size(462, 450);
+            this.dgv_Producer.TabIndex = 36;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(27, 53);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(50, 13);
+            this.label12.TabIndex = 30;
+            this.label12.Text = "Producer";
+            // 
+            // btn_AddAlloc
+            // 
+            this.btn_AddAlloc.Location = new System.Drawing.Point(126, 255);
+            this.btn_AddAlloc.Name = "btn_AddAlloc";
+            this.btn_AddAlloc.Size = new System.Drawing.Size(75, 23);
+            this.btn_AddAlloc.TabIndex = 29;
+            this.btn_AddAlloc.Text = "Add";
+            this.btn_AddAlloc.UseVisualStyleBackColor = true;
+            this.btn_AddAlloc.Click += new System.EventHandler(this.btn_AddAlloc_Click);
             // 
             // StudioManagerForm
             // 

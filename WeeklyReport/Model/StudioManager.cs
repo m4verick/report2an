@@ -16,6 +16,14 @@ namespace WeeklyReport.Model
         string m_iosDeadline;
         string m_localDeadline;
 
+        #region ResourceAllocation
+        string m_prodId;
+        int m_prgAlloc;
+        int m_qaAlloc;
+        int m_gdAlloc;
+        int m_gfxAlloc;
+        #endregion
+
         public StudioManager()
         { 
         }
@@ -30,6 +38,15 @@ namespace WeeklyReport.Model
              m_hqProducer = hqProd;
              m_iosDeadline = iosDeadline;
              m_localDeadline = localdead;
+        }
+
+        public StudioManager(string prodId, int prgAlloc, int qaAll, int gdAll, int gfxAll)
+        {
+            m_prodId = prodId;
+            m_prgAlloc = prgAlloc;
+            m_qaAlloc = qaAll;
+            m_gdAlloc = gdAll;
+            m_gfxAlloc = gfxAll;
         }
 
         public string m_GameTitle
@@ -79,5 +96,37 @@ namespace WeeklyReport.Model
             set { m_localDeadline = value; }
             get { return m_localDeadline; }
         }
+
+        #region ResourceAllocation
+        public string m_ProdId
+        {
+            set { m_prodId = value; }
+            get { return m_prodId; }
+        }
+
+        public int m_PrgAlloc
+        {
+            set { m_prgAlloc = value; }
+            get { return m_prgAlloc; }
+        }
+
+        public int m_QaAlloc
+        {
+            set { m_qaAlloc = value; }
+            get { return m_qaAlloc; }
+        }
+
+        public int m_GdAlloc
+        {
+            set { m_gdAlloc = value; }
+            get { return m_gdAlloc; }
+        }
+
+        public int m_GfxAlloc
+        {
+            set { m_gfxAlloc = value; }
+            get { return m_gfxAlloc; }
+        }
+        #endregion
     }
 }

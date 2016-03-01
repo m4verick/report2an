@@ -68,6 +68,10 @@ namespace WeeklyReport.View
             cmbSM_LocalProd.DataSource = ds.Tables[0];
             cmbSM_LocalProd.DisplayMember = "user_name";
             cmbSM_LocalProd.ValueMember = "id_user";
+
+            cmb_Producer.DataSource = ds.Tables[0];
+            cmb_Producer.DisplayMember = "user_name";
+            cmb_Producer.ValueMember = "id_user";
         }
 
         private void DataSetComboBoxGame()
@@ -120,6 +124,14 @@ namespace WeeklyReport.View
             txtSM_EvolutionUpd.Text = "";
             txtSM_GameTitle.Text = "";
             txtSM_HQProd.Text = "";
+        }
+
+        private void ClearFieldRes()
+        {
+            txt_PrgAlloc.Text = "";
+            txt_QaAlloc.Text = "";
+            txt_GdAlloc.Text = "";
+            txt_GfxAlloc.Text = "";
         }
 
         private void MailSending(string username, string pass)
@@ -527,6 +539,21 @@ namespace WeeklyReport.View
         private void btn_SendMailReport_Click(object sender, EventArgs e)
         {
             MailSending(txt_GLMailAcc.Text.ToString(), txt_GLPass.Text.ToString());
+        }
+
+        private void btn_AddAlloc_Click(object sender, EventArgs e)
+        {
+            s_StudioManager = new StudioManager(cmb_Producer.SelectedValue.ToString(), int.Parse(txt_PrgAlloc.Text.ToString()), int.Parse(txt_QaAlloc.Text.ToString()), int.Parse(txt_GdAlloc.Text.ToString()), int.Parse(txt_GfxAlloc.Text.ToString()));
+
+            if (s_SMManager.AddResourceAllocation(s_StudioManager))
+            {
+                MessageBox.Show("Succesfully added", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ClearFieldRes();
+            }
+            else
+            {
+                MessageBox.Show("Failed to add", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

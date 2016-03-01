@@ -60,7 +60,7 @@ namespace WeeklyReport.View
         {
             DataSet ds = s_ProducerManager.GetDataGameByNameDateNow();
             cmb_GameTitleRisk.DataSource = ds.Tables[0];
-            cmb_GameTitleRisk.DisplayMember = "game_title";
+            cmb_GameTitleRisk.DisplayMember = "gametitle";
             cmb_GameTitleRisk.ValueMember = "gameid";
         }
 
